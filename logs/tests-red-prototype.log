@@ -1,0 +1,153 @@
+test_failed_write_preserves_previous_bytes (test_atomic_write.AtomicWriteTests.test_failed_write_preserves_previous_bytes)
+Обрыв записи посреди publish: прежние байты обязаны уцелеть. ... FAIL
+test_crash_between_pointer_and_journal_recovers (test_release_integration.ReleaseProcessTests.test_crash_between_pointer_and_journal_recovers)
+Сбой после замены указателя: повтор восстанавливает журнал без дубля. ... skipped 'точка сбоя есть только в исправленной версии'
+test_crash_recovery_and_cache_invalidation (test_release_integration.ReleaseProcessTests.test_crash_recovery_and_cache_invalidation)
+Сбой после подготовки → повтор берёт кеш; изменение входа/конфига → пересчёт. ... FAIL
+test_incomplete_and_foreign_report_rejected (test_release_integration.ReleaseProcessTests.test_incomplete_and_foreign_report_rejected)
+Неполный отчёт и отчёт чужой модели закрывают выпуск, A остаётся принятым. ... FAIL
+test_rejected_report_preserves_accepted (test_release_integration.ReleaseProcessTests.test_rejected_report_preserves_accepted)
+Честный отказ гейта (passed=false) сохраняет прежнюю версию. ... ok
+test_repeat_release_single_event (test_release_integration.ReleaseProcessTests.test_repeat_release_single_event)
+Два одинаковых успешных выпуска — одно событие фактического выпуска. ... FAIL
+test_publish_does_not_swap_model_in_memory_and_rollback (test_service_integration.LoadedVersionTests.test_publish_does_not_swap_model_in_memory_and_rollback) ... FAIL
+test_ready_only_after_warmup (test_service_integration.ReadinessTests.test_ready_only_after_warmup) ... /usr/lib/python3.12/http/client.py:1336: ResourceWarning: unclosed file <_io.TextIOWrapper name=3 encoding='UTF-8'>
+  for i, one_value in enumerate(values):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+FAIL
+test_invalid_requests_rejected_before_backend (test_service_integration.RequestValidationTests.test_invalid_requests_rejected_before_backend) ... 
+  test_invalid_requests_rejected_before_backend (test_service_integration.RequestValidationTests.test_invalid_requests_rejected_before_backend) (payload="{'prompt': '', 'max_new_tokens': 8}") ... FAIL
+  test_invalid_requests_rejected_before_backend (test_service_integration.RequestValidationTests.test_invalid_requests_rejected_before_backend) (payload="{'prompt': 'тест', 'max_new_tokens': 0}") ... FAIL
+  test_invalid_requests_rejected_before_backend (test_service_integration.RequestValidationTests.test_invalid_requests_rejected_before_backend) (payload="{'prompt': 'тест', 'max_new_tokens': 100000}") ... FAIL
+  test_invalid_requests_rejected_before_backend (test_service_integration.RequestValidationTests.test_invalid_requests_rejected_before_backend) (payload="{'prompt': 'тест', 'max_new_tokens': '8'}") ... FAIL
+  test_invalid_requests_rejected_before_backend (test_service_integration.RequestValidationTests.test_invalid_requests_rejected_before_backend) (payload="{'prompt': 'тест', 'max_new_tokens': True}") ... FAIL
+  test_invalid_requests_rejected_before_backend (test_service_integration.RequestValidationTests.test_invalid_requests_rejected_before_backend) (payload="{'max_new_tokens': 8}") ... FAIL
+  test_invalid_requests_rejected_before_backend (test_service_integration.RequestValidationTests.test_invalid_requests_rejected_before_backend) (payload="{'prompt': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx") ... FAIL
+test_invalid_requests_rejected_before_backend (test_service_integration.RequestValidationTests.test_invalid_requests_rejected_before_backend) ... FAIL
+
+======================================================================
+FAIL: test_failed_write_preserves_previous_bytes (test_atomic_write.AtomicWriteTests.test_failed_write_preserves_previous_bytes)
+Обрыв записи посреди publish: прежние байты обязаны уцелеть.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/tests_integration/test_atomic_write.py", line 91, in test_failed_write_preserves_previous_bytes
+    self.assertEqual(self.target.read_bytes(), self.before,
+AssertionError: b'{\n  "schema_version": 1,\n  "model_id": "[356 chars]8882' != b'{"previous": true}\n' : сбой записи обязан сохранять прежний указатель побайтно
+
+======================================================================
+FAIL: test_crash_recovery_and_cache_invalidation (test_release_integration.ReleaseProcessTests.test_crash_recovery_and_cache_invalidation)
+Сбой после подготовки → повтор берёт кеш; изменение входа/конфига → пересчёт.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/tests_integration/test_release_integration.py", line 79, in test_crash_recovery_and_cache_invalidation
+    self.assertIn("PREPARED", out.stdout + out.stderr,
+AssertionError: 'PREPARED' not found in 'CACHE_HIT 198054bf85215318c03d10f903803a079521e2e7ca81c07b63d675b7ac90daba\nPUBLISHED fixture-B\n' : изменённый вход обязан готовиться заново, а не брать кеш
+
+======================================================================
+FAIL: test_incomplete_and_foreign_report_rejected (test_release_integration.ReleaseProcessTests.test_incomplete_and_foreign_report_rejected)
+Неполный отчёт и отчёт чужой модели закрывают выпуск, A остаётся принятым.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/tests_integration/test_release_integration.py", line 35, in test_incomplete_and_foreign_report_rejected
+    self.assertNotEqual(out.returncode, 0,
+AssertionError: 0 == 0 : неполный отчёт (status=running, passed='false' строкой) обязан ломать выпуск
+
+======================================================================
+FAIL: test_repeat_release_single_event (test_release_integration.ReleaseProcessTests.test_repeat_release_single_event)
+Два одинаковых успешных выпуска — одно событие фактического выпуска.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/tests_integration/test_release_integration.py", line 104, in test_repeat_release_single_event
+    self.assertEqual(after_second.count("fixture-B"), 1,
+AssertionError: 2 != 1 : повтор выпуска размножил публикации: ['fixture-B', 'fixture-B']
+
+======================================================================
+FAIL: test_publish_does_not_swap_model_in_memory_and_rollback (test_service_integration.LoadedVersionTests.test_publish_does_not_swap_model_in_memory_and_rollback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/tests_integration/test_service_integration.py", line 101, in test_publish_does_not_swap_model_in_memory_and_rollback
+    self.assertEqual(body["model_id"], "fixture-A",
+AssertionError: 'fixture-B' != 'fixture-A'
+- fixture-B
+?         ^
++ fixture-A
+?         ^
+ : ответ обязан содержать загруженную A, а не записанную B
+
+======================================================================
+FAIL: test_ready_only_after_warmup (test_service_integration.ReadinessTests.test_ready_only_after_warmup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/tests_integration/test_service_integration.py", line 37, in test_ready_only_after_warmup
+    self.assertEqual(status, 503, "до конца прогрева ready обязан быть 503")
+AssertionError: 200 != 503 : до конца прогрева ready обязан быть 503
+
+======================================================================
+FAIL: test_invalid_requests_rejected_before_backend (test_service_integration.RequestValidationTests.test_invalid_requests_rejected_before_backend) (payload="{'prompt': '', 'max_new_tokens': 8}")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/tests_integration/test_service_integration.py", line 169, in test_invalid_requests_rejected_before_backend
+    self.assertGreaterEqual(status, 400,
+AssertionError: 200 not greater than or equal to 400 : некорректный запрос обязан получать 4xx: {'answer': 'STUB ONLY: fixture-A', 'output_tokens': 1, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': '7b06d3c6-027c-4e2e-88b3-142dfdba10eb', 'generation_seconds': 0.011221632000342652}
+
+======================================================================
+FAIL: test_invalid_requests_rejected_before_backend (test_service_integration.RequestValidationTests.test_invalid_requests_rejected_before_backend) (payload="{'prompt': 'тест', 'max_new_tokens': 0}")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/tests_integration/test_service_integration.py", line 169, in test_invalid_requests_rejected_before_backend
+    self.assertGreaterEqual(status, 400,
+AssertionError: 200 not greater than or equal to 400 : некорректный запрос обязан получать 4xx: {'answer': 'STUB ONLY: fixture-A', 'output_tokens': 1, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': 'c813a7ab-8c88-435a-8eac-14918b484a98', 'generation_seconds': 0.011079168999458489}
+
+======================================================================
+FAIL: test_invalid_requests_rejected_before_backend (test_service_integration.RequestValidationTests.test_invalid_requests_rejected_before_backend) (payload="{'prompt': 'тест', 'max_new_tokens': 100000}")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/tests_integration/test_service_integration.py", line 169, in test_invalid_requests_rejected_before_backend
+    self.assertGreaterEqual(status, 400,
+AssertionError: 200 not greater than or equal to 400 : некорректный запрос обязан получать 4xx: {'answer': 'STUB ONLY: fixture-A', 'output_tokens': 1, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': '6f1d9ed7-f835-4b2d-9841-5c41b9f293d0', 'generation_seconds': 0.011052240000026359}
+
+======================================================================
+FAIL: test_invalid_requests_rejected_before_backend (test_service_integration.RequestValidationTests.test_invalid_requests_rejected_before_backend) (payload="{'prompt': 'тест', 'max_new_tokens': '8'}")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/tests_integration/test_service_integration.py", line 169, in test_invalid_requests_rejected_before_backend
+    self.assertGreaterEqual(status, 400,
+AssertionError: 200 not greater than or equal to 400 : некорректный запрос обязан получать 4xx: {'answer': 'STUB ONLY: fixture-A', 'output_tokens': 1, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': '7d1dc3f9-ba3f-42c2-88ed-9623816d9d48', 'generation_seconds': 0.011330983999869204}
+
+======================================================================
+FAIL: test_invalid_requests_rejected_before_backend (test_service_integration.RequestValidationTests.test_invalid_requests_rejected_before_backend) (payload="{'prompt': 'тест', 'max_new_tokens': True}")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/tests_integration/test_service_integration.py", line 169, in test_invalid_requests_rejected_before_backend
+    self.assertGreaterEqual(status, 400,
+AssertionError: 200 not greater than or equal to 400 : некорректный запрос обязан получать 4xx: {'answer': 'STUB ONLY: fixture-A', 'output_tokens': 1, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': 'a10cbe43-3edf-4f72-861e-2b4b5e99ae29', 'generation_seconds': 0.011418245000641036}
+
+======================================================================
+FAIL: test_invalid_requests_rejected_before_backend (test_service_integration.RequestValidationTests.test_invalid_requests_rejected_before_backend) (payload="{'max_new_tokens': 8}")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/tests_integration/test_service_integration.py", line 169, in test_invalid_requests_rejected_before_backend
+    self.assertGreaterEqual(status, 400,
+AssertionError: 200 not greater than or equal to 400 : некорректный запрос обязан получать 4xx: {'answer': 'STUB ONLY: fixture-A', 'output_tokens': 1, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': '2f7e283f-cc86-4491-b946-501bd72dd6e5', 'generation_seconds': 0.01099885199982964}
+
+======================================================================
+FAIL: test_invalid_requests_rejected_before_backend (test_service_integration.RequestValidationTests.test_invalid_requests_rejected_before_backend) (payload="{'prompt': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/tests_integration/test_service_integration.py", line 169, in test_invalid_requests_rejected_before_backend
+    self.assertGreaterEqual(status, 400,
+AssertionError: 200 not greater than or equal to 400 : некорректный запрос обязан получать 4xx: {'answer': 'STUB ONLY: fixture-A', 'output_tokens': 1, 'model_id': 'fixture-A', 'runtime_sha256': 'bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547', 'request_id': '8cfb0949-21ee-4646-bff4-c07bad5cc0fc', 'generation_seconds': 0.011065945999689575}
+
+======================================================================
+FAIL: test_invalid_requests_rejected_before_backend (test_service_integration.RequestValidationTests.test_invalid_requests_rejected_before_backend)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/tests_integration/test_service_integration.py", line 180, in test_invalid_requests_rejected_before_backend
+    self.assertEqual(after["calls"], before["calls"] + 1,
+AssertionError: 8 != 1 : ровно один вызов backend на валидный запрос
+
+----------------------------------------------------------------------
+Ran 9 tests in 7.344s
+
+FAILED (failures=14, skipped=1)
+rc=1
