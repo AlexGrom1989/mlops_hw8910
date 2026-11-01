@@ -1,0 +1,27 @@
+[project]
+name = "mlops-hw8910"
+version = "0.1.0"
+description = "ДЗ 8+9+10: процесс выпуска, проверки и API (исправленный прототип)"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  # Быстрый контур: HTTP-сервис и процесс выпуска. Весов и модели не требуют.
+  # Верхняя граница из-за prefect: в fastapi 0.159 удалён аргумент Body(min_items=...),
+  # который использует сервер Prefect 3.8.x; 0.150.0 работает.
+  "fastapi>=0.139,<0.151",
+  "uvicorn>=0.34,<1",
+  "httpx>=0.28,<1",
+  "prefect>=3.4,<4",
+]
+
+[project.optional-dependencies]
+# Тяжёлый контур: реальный загрузчик модели из ДЗ 6+7 (CPU, float32).
+# Версии совпадают с ДЗ 6+7, чтобы адаптер и кеш HF переиспользовались.
+model = [
+  "torch==2.14.0",
+  "transformers==5.17.0",
+  "peft==0.21.0",
+  "safetensors>=0.5,<1",
+]
+
+[tool.uv]
+package = false

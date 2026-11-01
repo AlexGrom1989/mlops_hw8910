@@ -1,0 +1,30 @@
+test_failed_write_preserves_previous_bytes (test_atomic_write.AtomicWriteTests.test_failed_write_preserves_previous_bytes)
+Обрыв записи посреди publish: прежние байты обязаны уцелеть. ... ok
+test_crash_between_pointer_and_journal_recovers (test_release_integration.ReleaseProcessTests.test_crash_between_pointer_and_journal_recovers)
+Сбой после замены указателя: повтор восстанавливает журнал без дубля. ... ok
+test_crash_recovery_and_cache_invalidation (test_release_integration.ReleaseProcessTests.test_crash_recovery_and_cache_invalidation)
+Сбой после подготовки → повтор берёт кеш; изменение входа/конфига → пересчёт. ... ok
+test_incomplete_and_foreign_report_rejected (test_release_integration.ReleaseProcessTests.test_incomplete_and_foreign_report_rejected)
+Неполный отчёт и отчёт чужой модели закрывают выпуск, A остаётся принятым. ... ok
+test_rejected_report_preserves_accepted (test_release_integration.ReleaseProcessTests.test_rejected_report_preserves_accepted)
+Честный отказ гейта (passed=false) сохраняет прежнюю версию. ... ok
+test_repeat_release_single_event (test_release_integration.ReleaseProcessTests.test_repeat_release_single_event)
+Два одинаковых успешных выпуска — одно событие фактического выпуска. ... ok
+test_publish_does_not_swap_model_in_memory_and_rollback (test_service_integration.LoadedVersionTests.test_publish_does_not_swap_model_in_memory_and_rollback) ... ok
+test_ready_only_after_warmup (test_service_integration.ReadinessTests.test_ready_only_after_warmup) ... /usr/lib/python3.12/socket.py:844: ResourceWarning: unclosed file <_io.FileIO name=3 mode='rb' closefd=True>
+  exceptions.clear()  # raise only the last error
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:844: ResourceWarning: unclosed file <_io.FileIO name=4 mode='rb' closefd=True>
+  exceptions.clear()  # raise only the last error
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/usr/lib/python3.12/socket.py:844: ResourceWarning: unclosed file <_io.FileIO name=5 mode='rb' closefd=True>
+  exceptions.clear()  # raise only the last error
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_invalid_requests_rejected_before_backend (test_service_integration.RequestValidationTests.test_invalid_requests_rejected_before_backend) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 296.096s
+
+OK
+rc=0

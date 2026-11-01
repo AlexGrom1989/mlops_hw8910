@@ -8,3 +8,10 @@ models/
 *.bin
 *.pt
 .lab*/
+
+# Prefect-профиль проекта и журналы сервера
+.prefect/
+.prefect-server.log
+
+# Свои интеграционные тесты: временные каталоги
+tests_integration/tmp/
