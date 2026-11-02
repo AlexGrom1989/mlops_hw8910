@@ -1,0 +1,24 @@
+01:00:22.849 | INFO    | Flow run 'zealous-fox' - Beginning flow run 'zealous-fox' for flow 'release-model'
+01:00:22.909 | INFO    | Flow run 'zealous-fox' - View at http://127.0.0.1:4200/runs/flow-run/35755524-9eb9-47c5-a695-859fb6bdbd54
+FLOW START workspace=/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.lab-demo real=False
+01:00:23.085 | INFO    | Task run 'prepare_input-fcb' - PREPARED input_sha256=8ae2f34d5843 rows=4
+01:00:23.103 | INFO    | Task run 'prepare_input-fcb' - Finished in state Completed()
+TASK_STATE prepare_input Completed input_sha256=8ae2f34d5843
+01:00:23.233 | INFO    | Task run 'obtain_artifact-289' - ARTIFACT model_id=fixture-B files=1
+01:00:23.246 | INFO    | Task run 'obtain_artifact-289' - Finished in state Completed()
+TASK_STATE obtain_artifact Completed model_id=fixture-B
+01:00:23.285 | INFO    | Task run 'gate_check-8d0' - GATE PASS model_id=fixture-B eval=fixture-eval-B
+01:00:23.298 | INFO    | Task run 'gate_check-8d0' - Finished in state Completed()
+TASK_STATE gate_check Completed passed=True
+01:00:23.338 | INFO    | Task run 'publish_release_task-982' - RELEASE noop model_id=fixture-B release_id=b366aa232e76
+01:00:23.350 | INFO    | Task run 'publish_release_task-982' - Finished in state Completed()
+TASK_STATE publish_release Completed status=noop
+PUBLISHED fixture-B release_id=b366aa232e76 events=1
+01:00:24.072 | INFO    | Flow run 'zealous-fox' - Finished in state Completed()
+rc=0
+    PREPARED input_sha256=8ae2f34d5843
+    TASK_STATE prepare_input Completed
+    TASK_STATE obtain_artifact Completed
+    TASK_STATE gate_check Completed
+    TASK_STATE publish_release Completed
+    PUBLISHED fixture-B

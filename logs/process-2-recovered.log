@@ -1,0 +1,22 @@
+00:59:53.510 | INFO    | Flow run 'grinning-goose' - Beginning flow run 'grinning-goose' for flow 'release-model'
+00:59:53.573 | INFO    | Flow run 'grinning-goose' - View at http://127.0.0.1:4200/runs/flow-run/55cc1e53-60dd-4613-8026-97a1996b6dac
+FLOW START workspace=/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.lab-demo real=False
+00:59:53.810 | INFO    | Task run 'prepare_input-a9d' - Finished in state Cached(type=COMPLETED)
+TASK_STATE prepare_input Cached input_sha256=12da99c35b3f
+00:59:53.933 | INFO    | Task run 'obtain_artifact-fdd' - ARTIFACT model_id=fixture-B files=1
+00:59:53.947 | INFO    | Task run 'obtain_artifact-fdd' - Finished in state Completed()
+TASK_STATE obtain_artifact Completed model_id=fixture-B
+00:59:53.985 | INFO    | Task run 'gate_check-01b' - GATE PASS model_id=fixture-B eval=fixture-eval-B
+00:59:53.998 | INFO    | Task run 'gate_check-01b' - Finished in state Completed()
+TASK_STATE gate_check Completed passed=True
+00:59:54.049 | INFO    | Task run 'publish_release_task-5ba' - RELEASE published model_id=fixture-B release_id=b366aa232e76
+00:59:54.062 | INFO    | Task run 'publish_release_task-5ba' - Finished in state Completed()
+TASK_STATE publish_release Completed status=published
+PUBLISHED fixture-B release_id=b366aa232e76 events=1
+00:59:54.784 | INFO    | Flow run 'grinning-goose' - Finished in state Completed()
+rc=0
+    TASK_STATE prepare_input Cached
+    TASK_STATE obtain_artifact Completed
+    TASK_STATE gate_check Completed
+    TASK_STATE publish_release Completed
+    PUBLISHED fixture-B

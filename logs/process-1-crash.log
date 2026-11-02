@@ -1,0 +1,54 @@
+00:59:38.880 | INFO    | Flow run 'tasteful-swift' - Beginning flow run 'tasteful-swift' for flow 'release-model'
+00:59:38.952 | INFO    | Flow run 'tasteful-swift' - View at http://127.0.0.1:4200/runs/flow-run/a31b3832-10cb-4851-bca0-9bd2c78fc746
+FLOW START workspace=/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.lab-demo real=False
+00:59:39.144 | INFO    | Task run 'prepare_input-a24' - PREPARED input_sha256=12da99c35b3f rows=3
+00:59:39.163 | INFO    | Task run 'prepare_input-a24' - Finished in state Completed()
+TASK_STATE prepare_input Completed input_sha256=12da99c35b3f
+00:59:40.126 | ERROR   | Flow run 'tasteful-swift' - Encountered exception during execution: RuntimeError('Инъекция сбоя после подготовки')
+Traceback (most recent call last):
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1330, in run_context
+    yield self
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 2111, in run_flow_sync
+    engine.call_flow_fn()
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1350, in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/utilities/callables/__init__.py", line 356, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/flow.py", line 230, in release_flow
+    raise RuntimeError("Инъекция сбоя после подготовки")
+RuntimeError: Инъекция сбоя после подготовки
+00:59:40.304 | INFO    | Flow run 'tasteful-swift' - Finished in state Failed('Flow run encountered an exception: RuntimeError: Инъекция сбоя после подготовки')
+Traceback (most recent call last):
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/flow.py", line 281, in <module>
+    main()
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/flow.py", line 276, in main
+    release_flow(str(args.workspace), args.report, args.manifest,
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/flows.py", line 1887, in __call__
+    return run_flow(
+           ^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 2268, in run_flow
+    ret_val = run_flow_sync(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 2113, in run_flow_sync
+    return engine.state if return_type == "state" else engine.result()
+                                                       ^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 788, in result
+    raise self._raised
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1330, in run_context
+    yield self
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 2111, in run_flow_sync
+    engine.call_flow_fn()
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1350, in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/utilities/callables/__init__.py", line 356, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/flow.py", line 230, in release_flow
+    raise RuntimeError("Инъекция сбоя после подготовки")
+RuntimeError: Инъекция сбоя после подготовки
+rc=1
+    PREPARED input_sha256=12da99c35b3f
+    TASK_STATE prepare_input Completed

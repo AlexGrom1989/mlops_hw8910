@@ -1,0 +1,6 @@
+сервис поднимается (pid 50017), ожидание готовности…
+готов; прогрев завершён, запуск замеров
+{"mode": "concurrency-1", "n": 8, "successes": 8, "errors": 0, "batch_seconds": 10.751, "requests_per_second": 0.744, "client_latency_seconds": {"mean": 1.344, "max": 1.587}, "generation_seconds": {"mean": 1.339, "max": 1.577}, "output_tokens": [6, 7], "model_id": "baseline-qwen3-0.6b"}
+{"mode": "concurrency-2", "n": 8, "successes": 8, "errors": 0, "batch_seconds": 12.454, "requests_per_second": 0.642, "client_latency_seconds": {"mean": 2.948, "max": 3.568}, "generation_seconds": {"mean": 1.551, "max": 1.79}, "output_tokens": [6, 7], "model_id": "baseline-qwen3-0.6b"}
+сохранено: real/bench-requests.jsonl, real/bench-summary.json
+rc=0

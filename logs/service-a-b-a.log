@@ -1,0 +1,48 @@
+== старт на принятой A
+STARTING http://127.0.0.1:8094 backend=stub manifest=accepted.json
+ответ: {"answer":"STUB ONLY: fixture-A","output_tokens":1,"generation_seconds":0.010228709999864805,"request_id":"e4f75067-1e08-4d13-9d4d-fef7f1ffd413","model_id":"fixture-A","runtime_sha256":"bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547","total_seconds":0.010506030000215105}
+== публикация B в другом процессе, сервис работает
+01:02:17.410 | INFO    | Flow run 'quaint-shrew' - Beginning flow run 'quaint-shrew' for flow 'release-model'
+01:02:17.470 | INFO    | Flow run 'quaint-shrew' - View at http://127.0.0.1:4200/runs/flow-run/2ddfa5f8-513f-4c8b-adaf-65f0825a5195
+FLOW START workspace=/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.lab-demo-svc real=False
+01:02:17.689 | INFO    | Task run 'prepare_input-5f4' - Finished in state Cached(type=COMPLETED)
+TASK_STATE prepare_input Cached input_sha256=88bbd559a04a
+01:02:17.824 | INFO    | Task run 'obtain_artifact-164' - ARTIFACT model_id=fixture-B files=1
+01:02:17.837 | INFO    | Task run 'obtain_artifact-164' - Finished in state Completed()
+TASK_STATE obtain_artifact Completed model_id=fixture-B
+01:02:17.878 | INFO    | Task run 'gate_check-1f2' - GATE PASS model_id=fixture-B eval=fixture-eval-B
+01:02:17.891 | INFO    | Task run 'gate_check-1f2' - Finished in state Completed()
+TASK_STATE gate_check Completed passed=True
+01:02:17.940 | INFO    | Task run 'publish_release_task-809' - RELEASE published model_id=fixture-B release_id=b366aa232e76
+01:02:17.953 | INFO    | Task run 'publish_release_task-809' - Finished in state Completed()
+TASK_STATE publish_release Completed status=published
+PUBLISHED fixture-B release_id=b366aa232e76 events=1
+01:02:18.666 | INFO    | Flow run 'quaint-shrew' - Finished in state Completed()
+debug: {"loaded_id":"fixture-A","advertised_id":"fixture-B","calls":1,"warmup_finished":true,"load_error":null,"backend":"stub"}
+ответ: {"answer":"STUB ONLY: fixture-A","output_tokens":1,"generation_seconds":0.01016989200070384,"request_id":"aec9f089-e647-4229-bc86-833c9aaedafd","model_id":"fixture-A","runtime_sha256":"bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547","total_seconds":0.010370909999437572}
+== перезапуск: загружается B
+STARTING http://127.0.0.1:8094 backend=stub manifest=accepted.json
+ответ: {"answer":"STUB ONLY: fixture-B","output_tokens":1,"generation_seconds":0.010242960000141466,"request_id":"da894c42-5749-4ab0-a48f-fe775c1c78d3","model_id":"fixture-B","runtime_sha256":"bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547","total_seconds":0.010494882999410038}
+== управляемый откат к A (выпуск ранее принятой версии)
+01:02:36.819 | INFO    | Flow run 'accurate-wolf' - Beginning flow run 'accurate-wolf' for flow 'release-model'
+01:02:36.884 | INFO    | Flow run 'accurate-wolf' - View at http://127.0.0.1:4200/runs/flow-run/70a157bb-5429-4046-9853-11a536cf6126
+FLOW START workspace=/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.lab-demo-svc real=False
+01:02:37.073 | INFO    | Task run 'prepare_input-351' - Finished in state Cached(type=COMPLETED)
+TASK_STATE prepare_input Cached input_sha256=88bbd559a04a
+01:02:37.190 | INFO    | Task run 'obtain_artifact-a68' - ARTIFACT model_id=fixture-A files=1
+01:02:37.202 | INFO    | Task run 'obtain_artifact-a68' - Finished in state Completed()
+TASK_STATE obtain_artifact Completed model_id=fixture-A
+01:02:37.236 | INFO    | Task run 'gate_check-b0e' - GATE PASS model_id=fixture-A eval=fixture-eval-A
+01:02:37.248 | INFO    | Task run 'gate_check-b0e' - Finished in state Completed()
+TASK_STATE gate_check Completed passed=True
+01:02:37.293 | INFO    | Task run 'publish_release_task-db5' - RELEASE published model_id=fixture-A release_id=4499f2825816
+01:02:37.308 | INFO    | Task run 'publish_release_task-db5' - Finished in state Completed()
+TASK_STATE publish_release Completed status=published
+PUBLISHED fixture-A release_id=4499f2825816 events=2
+01:02:38.051 | INFO    | Flow run 'accurate-wolf' - Finished in state Completed()
+STARTING http://127.0.0.1:8094 backend=stub manifest=accepted.json
+ответ: {"answer":"STUB ONLY: fixture-A","output_tokens":1,"generation_seconds":0.010160028999962378,"request_id":"c871c8a3-0067-4fac-84e5-323e4157f3a1","model_id":"fixture-A","runtime_sha256":"bc7bd5a4806e2e0e3b8569666b251d6c59a8d8e01e37fc37bf95b534023ca547","total_seconds":0.010415506999379431}
+debug: {"loaded_id":"fixture-A","advertised_id":"fixture-A","calls":1,"warmup_finished":true,"load_error":null,"backend":"stub"}
+== журнал выпусков стенда:
+{"decision": {"evaluation_run_id": "fixture-eval-B", "model_id": "fixture-B", "passed": true, "report_path": ".lab-demo-svc/report-B.json"}, "evaluation_run_id": "fixture-eval-B", "model_id": "fixture-B", "recovered": false, "release_id": "b366aa232e769e6a7d3e35e7ccdd04e4b93b4989fab59d7f9083a90b748ab19c", "timestamp": 1793570537.936199}
+{"decision": {"evaluation_run_id": "fixture-eval-A", "model_id": "fixture-A", "passed": true, "report_path": ".lab-demo-svc/report-A.json"}, "evaluation_run_id": "fixture-eval-A", "model_id": "fixture-A", "recovered": false, "release_id": "4499f28258169496e5d6b6d8d7ad62ebb658ea6074e6b3685666fe85e41f0644", "timestamp": 1793570557.2911112}

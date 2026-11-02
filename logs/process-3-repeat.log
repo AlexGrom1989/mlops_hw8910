@@ -1,0 +1,22 @@
+01:00:08.405 | INFO    | Flow run 'impartial-basilisk' - Beginning flow run 'impartial-basilisk' for flow 'release-model'
+01:00:08.473 | INFO    | Flow run 'impartial-basilisk' - View at http://127.0.0.1:4200/runs/flow-run/88faab93-dc96-48b6-b1bc-35fb5d915655
+FLOW START workspace=/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.lab-demo real=False
+01:00:08.675 | INFO    | Task run 'prepare_input-b61' - Finished in state Cached(type=COMPLETED)
+TASK_STATE prepare_input Cached input_sha256=12da99c35b3f
+01:00:08.799 | INFO    | Task run 'obtain_artifact-39c' - ARTIFACT model_id=fixture-B files=1
+01:00:08.813 | INFO    | Task run 'obtain_artifact-39c' - Finished in state Completed()
+TASK_STATE obtain_artifact Completed model_id=fixture-B
+01:00:08.844 | INFO    | Task run 'gate_check-204' - GATE PASS model_id=fixture-B eval=fixture-eval-B
+01:00:08.864 | INFO    | Task run 'gate_check-204' - Finished in state Completed()
+TASK_STATE gate_check Completed passed=True
+01:00:08.902 | INFO    | Task run 'publish_release_task-e0e' - RELEASE noop model_id=fixture-B release_id=b366aa232e76
+01:00:08.914 | INFO    | Task run 'publish_release_task-e0e' - Finished in state Completed()
+TASK_STATE publish_release Completed status=noop
+PUBLISHED fixture-B release_id=b366aa232e76 events=1
+01:00:09.653 | INFO    | Flow run 'impartial-basilisk' - Finished in state Completed()
+rc=0
+    TASK_STATE prepare_input Cached
+    TASK_STATE obtain_artifact Completed
+    TASK_STATE gate_check Completed
+    TASK_STATE publish_release Completed
+    PUBLISHED fixture-B

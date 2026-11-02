@@ -1,0 +1,22 @@
+01:00:51.802 | INFO    | Flow run 'loutish-potoo' - Beginning flow run 'loutish-potoo' for flow 'release-model'
+01:00:51.869 | INFO    | Flow run 'loutish-potoo' - View at http://127.0.0.1:4200/runs/flow-run/53b18ebb-9fc9-4907-857f-4d53035213a5
+FLOW START workspace=/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.lab-demo real=False
+01:00:52.056 | INFO    | Task run 'prepare_input-3bd' - Finished in state Cached(type=COMPLETED)
+TASK_STATE prepare_input Cached input_sha256=8ae2f34d5843
+01:00:52.179 | INFO    | Task run 'obtain_artifact-190' - ARTIFACT model_id=fixture-A files=1
+01:00:52.192 | INFO    | Task run 'obtain_artifact-190' - Finished in state Completed()
+TASK_STATE obtain_artifact Completed model_id=fixture-A
+01:00:52.230 | INFO    | Task run 'gate_check-54d' - GATE PASS model_id=fixture-A eval=fixture-eval-A
+01:00:52.242 | INFO    | Task run 'gate_check-54d' - Finished in state Completed()
+TASK_STATE gate_check Completed passed=True
+01:00:52.283 | INFO    | Task run 'publish_release_task-d9b' - RELEASE recovered model_id=fixture-A release_id=4499f2825816
+01:00:52.294 | INFO    | Task run 'publish_release_task-d9b' - Finished in state Completed()
+TASK_STATE publish_release Completed status=recovered
+PUBLISHED fixture-A release_id=4499f2825816 events=2
+01:00:53.028 | INFO    | Flow run 'loutish-potoo' - Finished in state Completed()
+rc=0
+    TASK_STATE prepare_input Cached
+    TASK_STATE obtain_artifact Completed
+    TASK_STATE gate_check Completed
+    TASK_STATE publish_release Completed
+    PUBLISHED fixture-A
