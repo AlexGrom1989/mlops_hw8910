@@ -1,16 +1,42 @@
-name: Fast release checks
+name: Release checks
 on: [push, pull_request, workflow_dispatch]
 permissions:
   contents: read
+
+# Два контура, как в Makefile (make check / make check-integration).
+# Тяжёлый контур (веса, реальная генерация) в CI не выполняется: он
+# требует 2,4 ГБ RAM под float32-модель и кеш HF — прогоняется локально
+# (scripts/bench_real.py, scripts/check_adapter_load.py).
+
 jobs:
-  contracts:
+  quick:
+    # Ядро выпуска без весов и без сети: стандартная библиотека Python 3.12.
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      # Шаблон предполагает release.py и tests/ в корне репозитория.
-      # При вложенном проекте задайте working-directory для run.
-      - run: python -m compileall -q release.py tests
-      - run: python -m unittest discover -s tests -v
+      - name: Компиляция и выданные тесты (13 шт.)
+        run: make check
+
+  integration:
+    # Prefect + FastAPI: собственные интеграционные тесты.
+    # Prefect-сервер тесты поднимают сами (adapter.ensure_prefect),
+    # NO_PROXY обязателен: прокси-раннер не должен перехватывать localhost.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: astral-sh/setup-uv@v6
+      - name: Окружение из uv.lock (fastapi/prefect; веса — отдельная группа)
+        run: |
+          uv python install 3.12
+          uv sync --frozen
+      - name: Интеграционные тесты (STUB-бэкенд, реальный HTTP и subprocess)
+        run: make check-integration
+        env:
+          NO_PROXY: 127.0.0.1,localhost,::1
+          no_proxy: 127.0.0.1,localhost,::1
+
+  # Локальный эквивалент обоих контуров: make ci-local (= make check-all).
+  # Удалённые run не было — защиты merge через Actions не заявляем.
