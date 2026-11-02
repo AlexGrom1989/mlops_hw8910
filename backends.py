@@ -90,15 +90,17 @@ class TransformersBackend:
 
         uri = manifest["artifact_uri"]
         if uri.startswith("adapter-dir:"):
+            # file_hashes кандидата — файлы адаптера; снапшот базы отдельной
+            # ревизией уже закреплён, повторная проверка по нему неверна.
             self.repo, self.adapter_dir = _base_repo(manifest), Path(uri.split(":", 1)[1])
             _verify_files(manifest.get("file_hashes") or {}, self.adapter_dir)
+            self.snapshot = _cached_snapshot(self.repo, runtime["base_revision"])
         elif uri.startswith("hf:"):
             self.repo, self.adapter_dir = uri[3:].split("@", 1)[0], None
+            self.snapshot = _cached_snapshot(self.repo, runtime["base_revision"])
+            verify_artifact_files(manifest, self.snapshot)
         else:
             raise BackendError(f"Неизвестная схема artifact_uri: {uri!r}")
-
-        self.snapshot = _cached_snapshot(self.repo, runtime["base_revision"])
-        verify_artifact_files(manifest, self.snapshot)
 
         from transformers import AutoModelForCausalLM, AutoTokenizer
         self.tokenizer = AutoTokenizer.from_pretrained(self.repo, revision=runtime["base_revision"])
@@ -124,9 +126,11 @@ class TransformersBackend:
         messages = ([{"role": "system", "content": self.system_instruction}]
                     if self.system_instruction else [])
         messages.append({"role": "user", "content": prompt})
-        inputs = self.tokenizer.apply_chat_template(
+        encoded = self.tokenizer.apply_chat_template(
             messages, add_generation_prompt=True, return_tensors="pt",
             enable_thinking=False)
+        # transformers 5.x возвращает BatchEncoding, а не тензор: берём input_ids.
+        inputs = encoded.input_ids if not torch.is_tensor(encoded) else encoded
         started = time.perf_counter()
         with torch.no_grad():
             out = self.model.generate(
