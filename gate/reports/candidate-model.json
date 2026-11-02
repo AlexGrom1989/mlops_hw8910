@@ -1,0 +1,7 @@
+{
+  "kind": "adapter",
+  "name": "my-qwen-adapter",
+  "version": "1",
+  "run_id": "0f060a1fb67447948f2c4243d9abd311",
+  "uri": "models:/my-qwen-adapter/1"
+}

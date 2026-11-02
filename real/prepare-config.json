@@ -1,0 +1,7 @@
+{
+  "tokenizer_revision": "90a2903e36317f2a873560235218be86367fa0ed4209f53096b6d59325fed333",
+  "template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+  "max_length": 32,
+  "code_revision": "hw8910-prepare-v1",
+  "note": "подготовка = проверка схемы golden set перед оценкой; ключ кеша зависит от байтов golden и всех полей этого конфига"
+}

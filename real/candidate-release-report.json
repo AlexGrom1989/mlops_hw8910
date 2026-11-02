@@ -1,0 +1,37 @@
+{
+  "model_id": "candidate-my-qwen-adapter-1",
+  "model_sha256": "1da4401e7f4d376278bca8f0bdc2be01e022f37548808387e3df2b404ea7d3a8",
+  "protocol_sha256": "0fb4dbbab6267ac765052016501141d54a1155abed10acb0b53cccb6677cb015",
+  "golden_sha256": "97bd56b656fd673336b3c5dc09f9903a5a81d35d41d72cd0bb7bb368dc93bced",
+  "runtime_sha256": "650ef5c0897af8728487731fbe3fb2946fb138cc13db74511c56a9213da99e7a",
+  "status": "complete",
+  "passed": false,
+  "gate_reason": "Регрессия по accuracy: 0.2333 против 0.3000",
+  "evaluation_run_id": "d11b8c16c4bb459fa80e7cfc3a94b0c3",
+  "metrics": {
+    "accuracy": 0.23333333333333334,
+    "format_rate": 1.0
+  },
+  "slices": {
+    "long_review": 0.16279069767441862,
+    "rating_high": 0.6363636363636364,
+    "rating_low": 0.0,
+    "rating_mid": 0.0,
+    "short_review": 0.4117647058823529
+  },
+  "behavioral": {
+    "n": 3,
+    "correct": 0
+  },
+  "provenance": {
+    "baseline_eval": "gate/reports/baseline-eval.json",
+    "candidate_eval": "gate/reports/candidate-eval.json",
+    "candidate_eval_sha256": "77a70c1df0c313b0317a028fa6253b463f6a96dec9f5e7b29df0a79a8e800365",
+    "saved_decision": "gate/reports/quality-gate.json",
+    "saved_decision_sha256": "c2aaad83340bf9de3c3753175aa9d3edd8ed48aac433cc8f7f8cb40ab5c1a301",
+    "critical_slices": [
+      "rating_low"
+    ]
+  },
+  "synthetic": false
+}

@@ -1,0 +1,173 @@
+00:52:57.565 | INFO    | Flow run 'vigilant-giraffe' - Beginning flow run 'vigilant-giraffe' for flow 'release-model'
+00:52:57.630 | INFO    | Flow run 'vigilant-giraffe' - View at http://127.0.0.1:4200/runs/flow-run/863f153b-9ce1-42d4-a483-970852fadebd
+FLOW START workspace=/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/real real=True
+00:52:57.837 | INFO    | Task run 'prepare_input-446' - Finished in state Cached(type=COMPLETED)
+TASK_STATE prepare_input Cached input_sha256=8a86458ede8a
+00:52:58.087 | INFO    | Task run 'obtain_artifact-c4c' - ARTIFACT model_id=candidate-my-qwen-adapter-1 files=2
+00:52:58.101 | INFO    | Task run 'obtain_artifact-c4c' - Finished in state Completed()
+TASK_STATE obtain_artifact Completed model_id=candidate-my-qwen-adapter-1
+GATE OUTCOME model_id=candidate-my-qwen-adapter-1 passed=False reason=Регрессия по accuracy: 0.2333 против 0.3000
+00:52:58.188 | ERROR   | Task run 'gate_check_real-def' - Task run failed with exception: ValueError('Кандидат отклонён правилом допуска')
+Traceback (most recent call last):
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1027, in run_context
+    yield self
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1696, in run_task_sync
+    engine.call_task_fn(txn)
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1044, in call_task_fn
+    result = call_with_parameters(self.task.fn, parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/utilities/callables/__init__.py", line 356, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/flow.py", line 191, in gate_check_real
+    decision = admit.admit_real(str(root / manifest_name), str(root / report_name),
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/gate/admit.py", line 180, in admit_real
+    release.validate_release(manifest, json.loads(out.read_text(encoding="utf-8")))
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/release.py", line 137, in validate_release
+    raise ValueError("Кандидат отклонён правилом допуска")
+ValueError: Кандидат отклонён правилом допуска
+00:52:58.264 | ERROR   | Task run 'gate_check_real-def' - Finished in state Failed('Task run encountered an exception ValueError: Кандидат отклонён правилом допуска')
+00:52:58.824 | ERROR   | Flow run 'vigilant-giraffe' - Encountered exception during execution: ValueError('Кандидат отклонён правилом допуска')
+Traceback (most recent call last):
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1330, in run_context
+    yield self
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 2111, in run_flow_sync
+    engine.call_flow_fn()
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1350, in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/utilities/callables/__init__.py", line 356, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/flow.py", line 239, in release_flow
+    decision = gate.result()
+               ^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/futures.py", line 277, in result
+    _result = self._final_state.result(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/_internal/compatibility/async_dispatch.py", line 94, in wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/client/schemas/objects.py", line 394, in result
+    return run_coro_as_sync(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/utilities/asyncutils/__init__.py", line 207, in run_coro_as_sync
+    return call.result()
+           ^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/_internal/concurrency/calls.py", line 365, in result
+    return self.future.result(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/_internal/concurrency/calls.py", line 192, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/_internal/concurrency/calls.py", line 441, in _run_async
+    result = await coro
+             ^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/utilities/asyncutils/__init__.py", line 188, in coroutine_wrapper
+    return await task
+           ^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/states.py", line 89, in get_state_result
+    return await _get_state_result(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/states.py", line 161, in _get_state_result
+    raise await aget_state_exception(state)
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1027, in run_context
+    yield self
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1696, in run_task_sync
+    engine.call_task_fn(txn)
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1044, in call_task_fn
+    result = call_with_parameters(self.task.fn, parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/utilities/callables/__init__.py", line 356, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/flow.py", line 191, in gate_check_real
+    decision = admit.admit_real(str(root / manifest_name), str(root / report_name),
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/gate/admit.py", line 180, in admit_real
+    release.validate_release(manifest, json.loads(out.read_text(encoding="utf-8")))
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/release.py", line 137, in validate_release
+    raise ValueError("Кандидат отклонён правилом допуска")
+ValueError: Кандидат отклонён правилом допуска
+00:52:59.111 | INFO    | Flow run 'vigilant-giraffe' - Finished in state Failed('Flow run encountered an exception: ValueError: Кандидат отклонён правилом допуска')
+Traceback (most recent call last):
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/flow.py", line 281, in <module>
+    main()
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/flow.py", line 276, in main
+    release_flow(str(args.workspace), args.report, args.manifest,
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/flows.py", line 1887, in __call__
+    return run_flow(
+           ^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 2268, in run_flow
+    ret_val = run_flow_sync(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 2113, in run_flow_sync
+    return engine.state if return_type == "state" else engine.result()
+                                                       ^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 788, in result
+    raise self._raised
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1330, in run_context
+    yield self
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 2111, in run_flow_sync
+    engine.call_flow_fn()
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/flow_engine.py", line 1350, in call_flow_fn
+    result = call_with_parameters(self.flow.fn, self.parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/utilities/callables/__init__.py", line 356, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/flow.py", line 239, in release_flow
+    decision = gate.result()
+               ^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/futures.py", line 277, in result
+    _result = self._final_state.result(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/_internal/compatibility/async_dispatch.py", line 94, in wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/client/schemas/objects.py", line 394, in result
+    return run_coro_as_sync(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/utilities/asyncutils/__init__.py", line 207, in run_coro_as_sync
+    return call.result()
+           ^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/_internal/concurrency/calls.py", line 365, in result
+    return self.future.result(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/_internal/concurrency/calls.py", line 192, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/_internal/concurrency/calls.py", line 441, in _run_async
+    result = await coro
+             ^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/utilities/asyncutils/__init__.py", line 188, in coroutine_wrapper
+    return await task
+           ^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/states.py", line 89, in get_state_result
+    return await _get_state_result(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/states.py", line 161, in _get_state_result
+    raise await aget_state_exception(state)
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1027, in run_context
+    yield self
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1696, in run_task_sync
+    engine.call_task_fn(txn)
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/task_engine.py", line 1044, in call_task_fn
+    result = call_with_parameters(self.task.fn, parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/.venv/lib/python3.12/site-packages/prefect/utilities/callables/__init__.py", line 356, in call_with_parameters
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/flow.py", line 191, in gate_check_real
+    decision = admit.admit_real(str(root / manifest_name), str(root / report_name),
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/gate/admit.py", line 180, in admit_real
+    release.validate_release(manifest, json.loads(out.read_text(encoding="utf-8")))
+  File "/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/release.py", line 137, in validate_release
+    raise ValueError("Кандидат отклонён правилом допуска")
+ValueError: Кандидат отклонён правилом допуска

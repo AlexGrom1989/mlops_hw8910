@@ -1,0 +1,12 @@
+{
+  "golden": "data/eval/golden.jsonl",
+  "training_index": "data/eval/training-index.jsonl",
+  "behavioral": "data/eval/behavioral.jsonl",
+  "critical_slices": [
+    "rating_low"
+  ],
+  "seed": 42,
+  "system": "Ты определяешь по тексту отзыва, какую оценку от 1 до 5 автор поставил организации. Отвечай строго одной строкой JSON вида {\"answer\":\"4\"}: единственное поле answer, значение — строка из choices, указанных в вопросе. Никаких пояснений, markdown и текста до или после JSON. Если запрос не является отзывом об организации, ответь {\"answer\":\"REFUSE\"}.",
+  "max_new_tokens": 32,
+  "enable_thinking": false
+}

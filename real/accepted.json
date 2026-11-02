@@ -1,0 +1,38 @@
+{
+  "artifact_uri": "hf:Qwen/Qwen3-0.6B@c1899de289a04d12100db370d81485cdf75e47ca",
+  "base_model_repo": "Qwen/Qwen3-0.6B",
+  "file_hashes": {
+    "config.json": "660db3b73d788119c04535e48cf9be5f55bc3100841a718637ae695b442f27dd",
+    "generation_config.json": "2325da0f15bb848e018c5ae071b7943332e9f871d6b60e2ed22ca97d4cb993d2",
+    "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+    "tokenizer.json": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+    "tokenizer_config.json": "d5d09f07b48c3086c508b30d1c9114bd1189145b74e982a265350c923acd8101",
+    "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+  },
+  "golden_sha256": "97bd56b656fd673336b3c5dc09f9903a5a81d35d41d72cd0bb7bb368dc93bced",
+  "model_id": "baseline-qwen3-0.6b",
+  "model_sha256": "62851e5e39395f893633e2283ace53d5b223896d0058c751fa086f81c7a4f187",
+  "origin": {
+    "hw": "ДЗ 6+7: зафиксированная база оценки (docs/conclusion.md той работы)",
+    "kind": "base",
+    "name": "Qwen/Qwen3-0.6B",
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca"
+  },
+  "protocol_sha256": "0fb4dbbab6267ac765052016501141d54a1155abed10acb0b53cccb6677cb015",
+  "release_id": "38ec6bf31cc0d8c0717e6eb369f916a8df8efc849972ffc1641bff10b6e0470e",
+  "runtime": {
+    "base_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "dtype": "float32",
+    "generation": {
+      "do_sample": false,
+      "enable_thinking": false,
+      "max_new_tokens": 32,
+      "system_instruction_sha256": "7bbb0cd730239b1d482026a858bea4e4cdc0eba26de06721373b70126b97f7fe"
+    },
+    "template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+    "tokenizer_sha256": "90a2903e36317f2a873560235218be86367fa0ed4209f53096b6d59325fed333"
+  },
+  "runtime_sha256": "650ef5c0897af8728487731fbe3fb2946fb138cc13db74511c56a9213da99e7a",
+  "schema_version": 1,
+  "weights_pinned_by": "base_revision: веса базы закреплены точной ревизией HF, file_hashes покрывает конфиги и токенизатор снапшота"
+}

@@ -1,0 +1,848 @@
+{
+  "overall": {
+    "n": 60,
+    "correct": 14,
+    "valid": 60,
+    "errors": 0,
+    "accuracy": 0.23333333333333334,
+    "format_rate": 1.0
+  },
+  "slices": {
+    "long_review": {
+      "n": 43,
+      "correct": 7,
+      "valid": 43,
+      "errors": 0,
+      "accuracy": 0.16279069767441862,
+      "format_rate": 1.0
+    },
+    "rating_high": {
+      "n": 22,
+      "correct": 14,
+      "valid": 22,
+      "errors": 0,
+      "accuracy": 0.6363636363636364,
+      "format_rate": 1.0
+    },
+    "rating_low": {
+      "n": 24,
+      "correct": 0,
+      "valid": 24,
+      "errors": 0,
+      "accuracy": 0.0,
+      "format_rate": 1.0
+    },
+    "rating_mid": {
+      "n": 14,
+      "correct": 0,
+      "valid": 14,
+      "errors": 0,
+      "accuracy": 0.0,
+      "format_rate": 1.0
+    },
+    "short_review": {
+      "n": 17,
+      "correct": 7,
+      "valid": 17,
+      "errors": 0,
+      "accuracy": 0.4117647058823529,
+      "format_rate": 1.0
+    }
+  },
+  "per_item": [
+    {
+      "id": "gold-1-045ba29b4c",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-1-0f0df94354",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-1-149fa4e0fa",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-1-14b584af60",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-1-1b5e458b14",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "short_review"
+      ]
+    },
+    {
+      "id": "gold-1-1b9ba51c33",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-1-2a40b42081",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-1-301557d8fa",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "short_review"
+      ]
+    },
+    {
+      "id": "gold-1-3265b21636",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-1-391cbba46d",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-1-3a4c7e9a63",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-1-3d2cc0ba4f",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-1-3f180fe58f",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-1-4bc730f288",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-2-03a1af8b2e",
+      "raw": "{\"answer\":\"REFUSE\"}",
+      "parsed": "REFUSE",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-2-40af3600b2",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-2-5bc2a654b3",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-2-64abbe5f7f",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "short_review"
+      ]
+    },
+    {
+      "id": "gold-2-6dfc76e30d",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-2-7870ce5752",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-2-beef94b028",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-2-d4858d42c1",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "short_review"
+      ]
+    },
+    {
+      "id": "gold-2-dbc028cf73",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-2-e4c854da10",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_low",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-3-38a0f54943",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_mid",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-3-4135361196",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_mid",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-3-44b3477a82",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_mid",
+        "short_review"
+      ]
+    },
+    {
+      "id": "gold-3-49c548e949",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_mid",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-3-5dcdd167a9",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_mid",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-3-6503a7be98",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_mid",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-3-7f8fded5f6",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_mid",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-3-809334c6c5",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_mid",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-3-993aea8c2c",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_mid",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-3-a082363b71",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_mid",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-3-ae1a51a836",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_mid",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-3-b139edd9d9",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_mid",
+        "short_review"
+      ]
+    },
+    {
+      "id": "gold-3-bb57b62a21",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_mid",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-3-c271a7f3e0",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_mid",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-4-0a598b0484",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "rating_high",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-4-189eeb0241",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "rating_high",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-4-2950ea043d",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "rating_high",
+        "short_review"
+      ]
+    },
+    {
+      "id": "gold-4-488bf24c56",
+      "raw": "{\"answer\":\"5\"}",
+      "parsed": "5",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_high",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-4-4b45aee36a",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "rating_high",
+        "short_review"
+      ]
+    },
+    {
+      "id": "gold-4-57e2f9e919",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "rating_high",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-4-58f26b5a0f",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "rating_high",
+        "short_review"
+      ]
+    },
+    {
+      "id": "gold-4-5fbe1a83d7",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "rating_high",
+        "short_review"
+      ]
+    },
+    {
+      "id": "gold-4-69e7b083d8",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "rating_high",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-4-6c3e0e70ee",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "rating_high",
+        "short_review"
+      ]
+    },
+    {
+      "id": "gold-4-7b2144c66f",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "rating_high",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-4-7f036d2960",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "rating_high",
+        "short_review"
+      ]
+    },
+    {
+      "id": "gold-4-88a3ff6c10",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "rating_high",
+        "short_review"
+      ]
+    },
+    {
+      "id": "gold-4-c37520eafd",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "rating_high",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-5-009b2e64a2",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_high",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-5-0188224436",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_high",
+        "short_review"
+      ]
+    },
+    {
+      "id": "gold-5-01af116b55",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_high",
+        "short_review"
+      ]
+    },
+    {
+      "id": "gold-5-02a6122851",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_high",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-5-02d89b6b19",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_high",
+        "short_review"
+      ]
+    },
+    {
+      "id": "gold-5-03e29dcab6",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_high",
+        "short_review"
+      ]
+    },
+    {
+      "id": "gold-5-044a94eaf2",
+      "raw": "{\"answer\":\"4\"}",
+      "parsed": "4",
+      "valid": true,
+      "correct": false,
+      "error": null,
+      "slices": [
+        "rating_high",
+        "long_review"
+      ]
+    },
+    {
+      "id": "gold-5-045fa323dd",
+      "raw": "{\"answer\":\"5\"}",
+      "parsed": "5",
+      "valid": true,
+      "correct": true,
+      "error": null,
+      "slices": [
+        "rating_high",
+        "long_review"
+      ]
+    }
+  ],
+  "status": "complete",
+  "model": {
+    "kind": "adapter",
+    "name": "my-qwen-adapter",
+    "version": "1",
+    "run_id": "0f060a1fb67447948f2c4243d9abd311",
+    "uri": "models:/my-qwen-adapter/1"
+  },
+  "protocol_sha256": "0fb4dbbab6267ac765052016501141d54a1155abed10acb0b53cccb6677cb015",
+  "golden_sha256": "97bd56b656fd673336b3c5dc09f9903a5a81d35d41d72cd0bb7bb368dc93bced",
+  "baseline_spec_sha256": "f71269b95f6b4e1e160fa25e9af6c973517cfebad15880b75b56c8184680b163",
+  "behavioral": {
+    "overall": {
+      "n": 3,
+      "correct": 0,
+      "valid": 3,
+      "errors": 0,
+      "accuracy": 0.0,
+      "format_rate": 1.0
+    },
+    "slices": {
+      "behavior": {
+        "n": 3,
+        "correct": 0,
+        "valid": 3,
+        "errors": 0,
+        "accuracy": 0.0,
+        "format_rate": 1.0
+      }
+    },
+    "per_item": [
+      {
+        "id": "behave-format",
+        "raw": "{\"answer\":\"4\"}",
+        "parsed": "4",
+        "valid": true,
+        "correct": false,
+        "error": null,
+        "slices": [
+          "behavior"
+        ]
+      },
+      {
+        "id": "behave-paraphrase",
+        "raw": "{\"answer\":\"4\"}",
+        "parsed": "4",
+        "valid": true,
+        "correct": false,
+        "error": null,
+        "slices": [
+          "behavior"
+        ]
+      },
+      {
+        "id": "behave-refusal",
+        "raw": "{\"answer\":\"4\"}",
+        "parsed": "4",
+        "valid": true,
+        "correct": false,
+        "error": null,
+        "slices": [
+          "behavior"
+        ]
+      }
+    ]
+  },
+  "leakage": {
+    "exact_or_group_intersections": 0,
+    "n_train_index": 4797,
+    "n_golden": 60,
+    "n_behavioral": 3
+  },
+  "outputs_sha256": "a3d60fa70d5bb9e9ce886e16911d40f68b48226482d9404ed42f59433dc99fe3",
+  "evaluation_run_id": "d11b8c16c4bb459fa80e7cfc3a94b0c3"
+}

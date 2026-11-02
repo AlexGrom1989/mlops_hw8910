@@ -1,0 +1,31 @@
+{
+  "model": {
+    "name": "Qwen/Qwen3-0.6B",
+    "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "device": "cpu",
+    "dtype": "float32",
+    "enable_thinking": false
+  },
+  "generation": {
+    "max_new_tokens": 16,
+    "system": "Определи по тексту отзыва, какую оценку от 1 до 5 поставил автор. Ответь одной цифрой.",
+    "prompts": [
+      "Отзыв: «Ждали заказ сорок минут, принесли холодным, извинений не было.»",
+      "Отзыв: «Отличное место, вернёмся ещё раз: быстро, вкусно и недорого.»"
+    ]
+  },
+  "candidate": {
+    "name": "all-r8-high",
+    "r": 8,
+    "lr": 0.0003,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ]
+  }
+}

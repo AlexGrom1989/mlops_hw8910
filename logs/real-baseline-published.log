@@ -1,0 +1,17 @@
+00:53:12.003 | INFO    | Flow run 'mature-pigeon' - Beginning flow run 'mature-pigeon' for flow 'release-model'
+00:53:12.064 | INFO    | Flow run 'mature-pigeon' - View at http://127.0.0.1:4200/runs/flow-run/ed5f7e6e-1a77-4638-b4a9-8863ceb2821d
+FLOW START workspace=/home/alex/Desktop/mlops_bmstu/mlops26-hw8-9-10/hw8910-broken/real real=True
+00:53:12.249 | INFO    | Task run 'prepare_input-37a' - Finished in state Cached(type=COMPLETED)
+TASK_STATE prepare_input Cached input_sha256=8a86458ede8a
+00:53:13.277 | INFO    | Task run 'obtain_artifact-c4e' - ARTIFACT model_id=baseline-qwen3-0.6b files=6
+00:53:13.298 | INFO    | Task run 'obtain_artifact-c4e' - Finished in state Completed()
+TASK_STATE obtain_artifact Completed model_id=baseline-qwen3-0.6b
+GATE OUTCOME model_id=baseline-qwen3-0.6b passed=True reason=initial-adoption: полный завершённый eval ДЗ 6+7 без ошибок генерации, format_ra
+00:53:13.372 | INFO    | Task run 'gate_check_real-70f' - GATE REAL model_id=real/baseline-release-report.json passed=True report=5f225a100e5e
+00:53:13.390 | INFO    | Task run 'gate_check_real-70f' - Finished in state Completed()
+TASK_STATE gate_check_real Completed gate_passed=False
+00:53:13.452 | INFO    | Task run 'publish_release_task-26f' - RELEASE noop model_id=baseline-qwen3-0.6b release_id=38ec6bf31cc0
+00:53:13.468 | INFO    | Task run 'publish_release_task-26f' - Finished in state Completed()
+TASK_STATE publish_release Completed status=noop
+PUBLISHED baseline-qwen3-0.6b release_id=38ec6bf31cc0 events=1
+00:53:14.224 | INFO    | Flow run 'mature-pigeon' - Finished in state Completed()

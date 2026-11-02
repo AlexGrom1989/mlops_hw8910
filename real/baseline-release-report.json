@@ -1,0 +1,42 @@
+{
+  "model_id": "baseline-qwen3-0.6b",
+  "model_sha256": "62851e5e39395f893633e2283ace53d5b223896d0058c751fa086f81c7a4f187",
+  "protocol_sha256": "0fb4dbbab6267ac765052016501141d54a1155abed10acb0b53cccb6677cb015",
+  "golden_sha256": "97bd56b656fd673336b3c5dc09f9903a5a81d35d41d72cd0bb7bb368dc93bced",
+  "runtime_sha256": "650ef5c0897af8728487731fbe3fb2946fb138cc13db74511c56a9213da99e7a",
+  "status": "complete",
+  "passed": true,
+  "decision_basis": "initial-adoption: полный завершённый eval ДЗ 6+7 без ошибок генерации, format_rate=1.0, хеши протокола/golden/ревизии совпадают с manifest; полный quality_gate применён к кандидату против этой baseline и отказал — пороги не менялись",
+  "evaluation_run_id": "d11b8c16c4bb459fa80e7cfc3a94b0c3",
+  "metrics": {
+    "accuracy": 0.3,
+    "format_rate": 1.0
+  },
+  "slices": {
+    "long_review": 0.20930232558139536,
+    "rating_high": 0.8181818181818182,
+    "rating_low": 0.0,
+    "rating_mid": 0.0,
+    "short_review": 0.5294117647058824
+  },
+  "behavioral": {
+    "n": 3,
+    "correct": 1
+  },
+  "gate": {
+    "rule": "hw6+7 quality_gate(candidate vs baseline), критический срез rating_low",
+    "passed": false,
+    "reason": "Регрессия по accuracy: 0.2333 против 0.3000",
+    "candidate": "my-qwen-adapter@1 (run 0f060a1fb674…)",
+    "saved_decision_sha256": "c2aaad83340bf9de3c3753175aa9d3edd8ed48aac433cc8f7f8cb40ab5c1a301"
+  },
+  "provenance": {
+    "baseline_eval": "gate/reports/baseline-eval.json",
+    "baseline_eval_sha256": "22194832edfdbb0ccd2b5b2f6da9e215e3286db344fc8bc50ccf9d04a63c2454",
+    "raw_answers": "gate/reports/baseline-outputs.json",
+    "raw_answers_file_sha256": "fce5b03b8df80278a55abe4d41a999599ab3c1a5fe954a93fa3643bdae124c74",
+    "raw_answers_sha256_as_recorded": "2d16b16ea78d17b71f595a73f633401a770c4742624f13e5243e4896338e24c5",
+    "system_instruction": "real/system-instruction.txt"
+  },
+  "synthetic": false
+}
